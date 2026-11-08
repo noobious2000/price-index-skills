@@ -39,7 +39,7 @@ price tool, and the used-tool skill only fetches public pages.
 The golf price tool is also a remote MCP server that any MCP client can connect
 to directly. It is free, read-only and needs no account or sign-in.
 
-- **Server URL (Claude):** `https://app.golfclubindex.com/mcp?src=claude`
+- **Server URL (Claude):** `https://app.golfclubindex.com/mcp?src=claudedir`
 - **Transport:** Streamable HTTP. **Authentication:** none.
 - **In Claude:** Settings > Connectors > Add custom connector, paste the URL.
 
