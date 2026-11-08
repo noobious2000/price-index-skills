@@ -1,1 +1,1 @@
-# price-index-skills
+Price Index skills for AI agents
