@@ -18,7 +18,7 @@ public price sites:
 
 - **golf-club-prices** uses the Golf Club Index MCP server
   (`https://app.golfclubindex.com/mcp?src=skill`, read-only, no sign-in, the
-  same two tools as the Golf Club Index app in ChatGPT) or, without MCP, the
+  same tools as the Golf Club Index connector below) or, without MCP, the
   site's public pages and `https://golfclubindex.com/llms.txt`.
 - **used-tool-prices** reads Used Tool Index's public pages and
   `https://usedtoolindex.com/llms.txt`. It has no MCP server.
@@ -33,6 +33,44 @@ through those listings.
 Nothing in this repository is secret, and neither skill sends anything about
 the person: the golf skill sends only the club details in the question to our
 price tool, and the used-tool skill only fetches public pages.
+
+## Golf Club Index connector (MCP server)
+
+The golf price tool is also a remote MCP server that any MCP client can connect
+to directly. It is free, read-only and needs no account or sign-in.
+
+- **Server URL (Claude):** `https://app.golfclubindex.com/mcp?src=claude`
+- **Transport:** Streamable HTTP. **Authentication:** none.
+- **In Claude:** Settings > Connectors > Add custom connector, paste the URL.
+
+### Tools (all read-only)
+
+| Tool | Use it for | Returns |
+|---|---|---|
+| `golf_used_value` | What a used club is worth or should sell for | Fair used price range (25th percentile to median of completed eBay sales), average sale, number of sales, 30-day trend, live asking prices where available, data date, link to the club's page |
+| `golf_best_used_under` | The best used clubs of a type under a budget, optionally one brand | Ranked list (model, average sale price, number of sales) and a link to the full page |
+| `find_used_deals` | Live listings priced below what a club usually sells for | Up to 5 live eBay listings below the club's median sold price: title, condition, price, usual price and the gap, date checked, and a link. Iron sets are full sets only (4-PW or 5-PW, with or without AW) |
+
+### Example prompts
+
+- "What's a used TaylorMade Stealth 2 driver worth?"
+- "Best used Ping irons under $500?"
+- "Find me a deal on a used Titleist Vokey SM9 wedge."
+
+### Data, links and disclosure
+
+Figures come from Golf Club Index's own daily dataset of completed and live eBay
+listings, gathered through eBay's APIs. Answers link to golfclubindex.com pages.
+`find_used_deals` links each listing through app.golfclubindex.com, which counts
+the click and forwards to the eBay listing; **Golf Club Index may earn a
+commission (eBay Partner Network) on purchases made through those links**, and
+every deals answer says so. The server stores no personal data and no
+conversation content: it counts tool calls, link clicks and the connecting
+client's name per day.
+
+- Privacy: https://golfclubindex.com/privacy
+- Methodology: https://golfclubindex.com/methodology
+- Support: https://golfclubindex.com/contact
 
 ## Layout
 
