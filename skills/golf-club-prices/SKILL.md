@@ -35,8 +35,8 @@ It has two read-only tools:
 
 - `golf_used_value` with `query` (the club as the person said it, for example
   "TaylorMade P790 irons" or "Vokey SM9 56") and optional `condition`. It
-  returns the fair used price range (25th percentile to median of completed
-  eBay sales), the average sale, the number of sales, the 30-day trend, live
+  returns the fair used price range (25th to 75th percentile of completed
+  eBay sales), the typical sale (median), the average sale, the number of sales, the 30-day trend, live
   asking prices where available, the data date (`as_of`), and the club's page
   link (`page_url`). When no club matches confidently it returns the nearest
   tracked clubs by name: ask the person which one they mean.
@@ -71,15 +71,16 @@ person, add `?utm_source=agent_skill&utm_medium=skill&utm_campaign=golf-club-pri
 ## How to answer
 
 1. Give the figures as the site gives them: "fair used price $X to $Y
-   (25th percentile to median of N completed eBay sales), average sale $Z".
+   (25th to 75th percentile of N completed eBay sales), typical sale $M".
 2. Always cite the page and its date: name golfclubindex.com, link the club's
    page, and say the date the figures are from (the page's "Sold prices as of"
    line, or `as_of` from the MCP answer).
 3. For "is this a good deal": compare the listing's price (plus shipping) with
    the fair used range. At or below the low end is a good price on sold
-   figures; inside the range is a typical price; above the median is more than
-   most sold for. Say it is a comparison with past sales, not an appraisal, and
-   that condition, shaft, loft and extras are not priced separately.
+   figures; inside the range is a typical price; above the high end (75th
+   percentile) is more than about three in four sold for. Say it is a
+   comparison with past sales, not an appraisal, and that condition, shaft,
+   loft and extras are not priced separately.
 4. If a model is not tracked, or has no sales recorded, say so. Do not estimate
    a figure the site does not publish.
 5. Live asking prices, when given, are not a value: asking prices run above
