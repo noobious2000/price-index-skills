@@ -47,7 +47,7 @@ to directly. It is free, read-only and needs no account or sign-in.
 
 | Tool | Use it for | Returns |
 |---|---|---|
-| `golf_used_value` | What a used club is worth or should sell for | Fair used price range (25th percentile to median of completed eBay sales), average sale, number of sales, 30-day trend, live asking prices where available, data date, link to the club's page |
+| `golf_used_value` | What a used club is worth or should sell for | Fair used price range (25th to 75th percentile of completed eBay sales), typical sale (median), average sale, number of sales, 30-day trend, live asking prices where available, data date, link to the club's page |
 | `golf_best_used_under` | The best used clubs of a type under a budget, optionally one brand | Ranked list (model, average sale price, number of sales) and a link to the full page |
 | `find_used_deals` | Live listings priced below what a club usually sells for | Up to 5 live eBay listings below the club's median sold price: title, condition, price, usual price and the gap, date checked, and a link. Iron sets are full sets only (4-PW or 5-PW, with or without AW) |
 
